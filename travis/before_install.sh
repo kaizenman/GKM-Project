@@ -81,10 +81,6 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     cd ..
     cd ..
 
-  if [ ! -d "./include" ]; then
-    mkdir ./include
-  fi
-
-  cp -Rv ./glfw/include/ ./include/ 
-  #rm -r glfw
+    cp -Rv ./glfw/include/ ./include/ 
+    #rm -r glfw
 fi
