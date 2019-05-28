@@ -2,6 +2,12 @@
 
 source travis/vars.sh
 
+which ninja
+echo $PATH
+
+ls /usr/bin -l
+
+
 filename='unknown'
 if [ "$(uname)" == "Darwin" ]; then
     # Building MacOS X OpenGL app
