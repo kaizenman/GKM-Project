@@ -71,22 +71,20 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "... Getting opengl libraries"
     echo "Installing RANDR!!!"
   #  apt-get update
-  #  git clone https://github.com/glfw/glfw
-  #  cd glfw
-  #  mkdir build
-  #  cd build
-  #  yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev
-    # TODO find out why RANDR is still missing on linux
-    #cmake .. && make -j4
-    #make install
+    git clone https://github.com/glfw/glfw
+    cd glfw
+    mkdir build
+    cd build
+    yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev xrandr-dev
+    cmake .. && make -j4
+    make install
+    cd ..
+    cd ..
 
-  #  cd ..
-  #  cd ..
+  if [ ! -d "./include" ]; then
+    mkdir ./include
+  fi
 
-  #if [ ! -d "./include" ]; then
-  # mkdir ./include
-  #fi
-
-  #cp -Rv ./glfw/include/ ./include/ 
+  cp -Rv ./glfw/include/ ./include/ 
   #rm -r glfw
 fi
