@@ -84,7 +84,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     #export POLLY_ROOT=/polly-0.10.3
     echo "... Getting opengl libraries"
     echo "Installing RANDR!!!"
-    apt-get update
+  #  apt-get update
   #  git clone https://github.com/glfw/glfw
   #  cd glfw
   #  mkdir build
