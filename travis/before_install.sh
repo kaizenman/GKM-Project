@@ -49,7 +49,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     yes | sdkmanager --licenses > /dev/null 2>&1
     sdkmanager "ndk-bundle" > /dev/null 2>&1
     apt-get -y install cmake
-    apt-get install ninja-build
+    apt-get -y install ninja-build
     apt-get -y install software-properties-common > /dev/null 2>&1
     wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
     apt-get update
