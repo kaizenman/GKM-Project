@@ -81,8 +81,8 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     #export POLLY_ROOT=/polly-0.10.3
     echo "... Getting opengl libraries"
     wget --no-check-certificate -O opengl.tar.gz  https://github.com/kaizenman/utils/archive/opengl.tar.gz
-    tar xvzf opengl_deps.tar.gz > /dev/null 2>&1
-    chmod +x ./utils-opengl_deps/install_opengl.sh
-    ./utils-opengl_deps/install_opengl.sh
+    tar xvzf opengl.tar.gz > /dev/null 2>&1
+    chmod +x ./opengl/install_opengl_deps.sh
+    ./opengl/install_opengl_deps.sh.sh
 fi
 cd cwd
