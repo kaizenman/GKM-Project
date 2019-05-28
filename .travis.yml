@@ -17,6 +17,7 @@ deploy:
   file:
   - bin/run_linux
   - bin/run_darwin
+  - bin/app-release.apk
   on:
     tags: false
   provider: releases
