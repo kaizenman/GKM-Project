@@ -78,11 +78,14 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     export LD_LIBRARY_PATH=/usr/lib/clang/6.0/lib:$LD_LIBRARY_PATH
     ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
     ln -s /usr/bin/clang-6.0 /usr/bin/clang
-    #echo "... Adding /polly-0.10.3 to POLLY_ROOT variable"
+    #echo "... Adding /polly-0.10.3 to POL\LY_ROOT variable"
     #export POLLY_ROOT=/polly-0.10.3
     echo "... Getting opengl libraries"
-    wget --no-check-certificate -O opengl.tar.gz  https://github.com/kaizenman/utils/archive/opengl.tar.gz
-    tar xvzf opengl.tar.gz > /dev/null 2>&1
-    chmod +x ./opengl/install_opengl_deps.sh
-    ./opengl/install_opengl_deps.sh
+    wget --no-check-certificate -O opengl_deps.tar.gz  https://github.com/kaizenman/utils/archive/opengl_deps.tar.gz
+
+    
+    tar xvzf opengl_deps.tar.gz
+    cd utils-opengl_deps
+    chmod +x ./install_opengl_deps.sh
+    ./install_opengl_deps.sh
 fi
