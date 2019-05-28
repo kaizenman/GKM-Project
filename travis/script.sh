@@ -6,12 +6,9 @@ source travis/vars.sh
 wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
 mkdir ninja
 unzip ninja-linux.zip -d ninja/
-cp -vf /ninja/ninja/ninja /usr/local/bin
+cp -vf /home/travis/build/kaizenman/GKM-Project/ninja/ninja/ninja /usr/local/bin
 
 echo $PWD
-
-export PATH=$PATH:/home/travis/build/kaizenman/GKM-Project/ninja/ninja
-
 
 which ninja
 echo $PATH
