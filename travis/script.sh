@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source travis/vars.sh
+
 filename='unknown'
 if [ "$(uname)" == "Darwin" ]; then
     # Building MacOS X OpenGL app
