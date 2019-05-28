@@ -8,7 +8,7 @@ mkdir ninja
 unzip ninja-linux.zip -d ninja/
 ls /home/travis/build/kaizenman/GKM-Project/ninja/
 ls /home/travis/build/kaizenman/GKM-Project/ninja/ninja
-cp -vf /home/travis/build/kaizenman/GKM-Project/ninja/ninja /usr/local/bin/
+export PATH=$PATH:/home/travis/build/kaizenman/GKM-Project/ninja/
 
 echo $PWD
 
