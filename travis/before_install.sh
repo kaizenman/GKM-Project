@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ "$(uname)" == "Darwin" ]; then
-    brew install glfw3
+    yes | brew install glfw3
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     source travis/vars.sh
   
