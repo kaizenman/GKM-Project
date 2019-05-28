@@ -1,8 +1,6 @@
 #!/bin/bash
 
-if [ "$(uname)" == "Darwin" ]; then
-
-elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     dpkg --add-architecture i386
     apt-get update -y
     apt-get install -y libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386
