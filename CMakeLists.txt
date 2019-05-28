@@ -11,9 +11,9 @@ set(SOURCE_FILES main.cpp)
 
 if(WIN32)
   set(DYNAMIC_LIBRARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
-  set(STATIC_LIBRARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/.lib")
+  set(STATIC_LIBRARY_DIR "${CMAKE_CURRENT_SOURCE_DIR}/lib")
 
-  set(INCLUDE_DIR "{CMAKE_CURRENT_SOURCE_DIR}/../.include")
+  set(INCLUDE_DIR "{CMAKE_CURRENT_SOURCE_DIR}/../include")
   include_directories(${INCLUDE_DIR})
   set(ALL_LIBS
      freeglut
