@@ -3,7 +3,6 @@ $DOCDIR = (Resolve-Path .\).Path
 
 #======================== TAR TOOL =====================================================================
 [Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
-[Net.ServicePointManager].SecurityProtocol = [Net.SecurityProtocolType].Ssl3 | [Net.SecurityProtocolType].Tls | [Net.SecurityProtocolType].Tls12 | [Net.SecurityProtocolType].Tls11;
 
 # Download latest dotnet/codeformatter release from github
 $repo = "senthilrajasek/tartool"

@@ -1,6 +1,6 @@
 #@TODO install ninja for faster build
 #get current location
-[Net.ServicePointManager].SecurityProtocol = [Net.SecurityProtocolType].Ssl3 | [Net.SecurityProtocolType].Tls | [Net.SecurityProtocolType].Tls12 | [Net.SecurityProtocolType].Tls11;
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 $DOCDIR = (Resolve-Path .\).Path
 
 function Resolve-MsBuild {
