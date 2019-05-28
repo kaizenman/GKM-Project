@@ -34,6 +34,11 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     filename='app-release.apk'
     # Building Android OpenGL app
     ./gradlew assembleRelease
+
+    if [ ! -d "bin" ]; then
+        mkdir bin
+    fi
+
     cp -vf app/build/outputs/apk/release/app-release.apk bin/
     # Building Linux OpenGL app
     # TODO find out why RANDR is still missing
