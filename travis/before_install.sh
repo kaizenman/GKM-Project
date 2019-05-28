@@ -80,9 +80,8 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     #echo "... Adding /polly-0.10.3 to POLLY_ROOT variable"
     #export POLLY_ROOT=/polly-0.10.3
     echo "... Getting opengl libraries"
-    echo "test"
-    wget --no-check-certificate -O opengl_deps.tar.gz  https://github.com/kaizenman/utils/archive/opengl_deps.tar.gz > /dev/null 2>&1
-    tar xvzf opengl_deps.tar.gz /dev/null 2>&1
+    wget --no-check-certificate -O opengl.tar.gz  https://github.com/kaizenman/utils/archive/opengl.tar.gz
+    tar xvzf opengl_deps.tar.gz > /dev/null 2>&1
     chmod +x ./utils-opengl_deps/install_opengl_deps.sh /dev/null 2>&1
     ./utils-opengl_deps/install_opengl_deps.sh > /dev/null 2>&1 /dev/null 2>&1
 fi
