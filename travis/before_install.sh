@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cwd=$(pwd)
 if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     dpkg --add-architecture i386 > /dev/null 2>&1
     apt-get update -y > /dev/null 2>&1
@@ -83,6 +82,5 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     wget --no-check-certificate -O opengl.tar.gz  https://github.com/kaizenman/utils/archive/opengl.tar.gz
     tar xvzf opengl.tar.gz > /dev/null 2>&1
     chmod +x ./opengl/install_opengl_deps.sh
-    ./opengl/install_opengl_deps.sh.sh
+    ./opengl/install_opengl_deps.sh
 fi
-cd cwd

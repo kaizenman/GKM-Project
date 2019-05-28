@@ -1,6 +1,5 @@
 #!/bin/bash
 
-cwd=$(pwd)
 filename='unknown'
 if [ "$(uname)" == "Darwin" ]; then
     # Building MacOS X OpenGL app
@@ -35,4 +34,3 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     fi
     cp -vf build/bin/"$filename" bin/"$filename"
 fi
-cd cwd
