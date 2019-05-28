@@ -12,15 +12,12 @@ before_deploy:
 - git config --local user.email makolyan2@ukr.net
 - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
 deploy:
-  api_key:
-    secure: "wQps46u7oEOMu0xlnU7UbAgR1FzzuQRLLvXmG37ozUt0ShVEPJtOkVQNyZpSqfAHdKe1YaxC/baLLomWrEmvEnQdCRbDv/NgYbZpi2vxZvU/orEeEzZeCOfk9xbin3aWgafmShZtspFwQghTu0FmcDjP7No8XDkQqXplWktJfrEDmICkZxmBxbEcP7l3vhK6Gs9nMDx/nCtchGyk6ryCq0JqvSbDa4EIJVU2bacxVQYuyQ7ITVcjYsuYAoMEjUF+9WHoTlFLF8JwUZjKUYn4jksXtQm5iRUnH4w0idVa1g7vuS0GfZ648Ii9mUJdPz8mewIfbDIl38BSQC5d9cpOyviDgDQwu1Qf0Jgcobo28T6+LteeZOj701JBUriVeEZsgFfkZ2+n5t4NteMZ6WFxq1Ak122p7UmrJZ5gi739cn698ZBrJA0jOY0i84sD7I+fjNDXs3+L9OVFuriCkRcdfGUd0ePPKGgcCi6zxU/0xmmaxzQltxud+XFkqHm02UFAevSD0uX7baQFwCr1ZiWOXKm2a9CH74dbJoN7dB392YUHXAbEMWFV4bqy/TIa7ya6DpWDKhMuXhmXwrdyhvKOlhrST6e2hShDMYxOAYUt8DuEIGftlFkVA7OiFe/jw9Y5Pg0dAmPbRZNWI3ag4MmzGcRb1BSkTZ/iydk8iwFzz/s="
-  file:
-  - bin/run_darwin
-  - bin/app-release.apk
-  on:
-    tags: false
   provider: releases
-  skip_cleanup: true
+  api_key:
+    secure: v/hO0VbIPVoPWRdjdVoJF9wfDNVjLZyejiKOO54kxnqAe9hIAa407DwQ86J3XV8x4k2f3GuG4EX8hs52y0oUI2bnFvMPNJqiNIc6r1s55MS9d/WbfiO+2q4AO0ldbziU0qDoNdHQm+9ZvlW0rr9kd3sqaw5lyrPrNGaa6B8bbisvh/8QbkL7SXwAn4iqdEX5awALXMaCNBF9Nl4a4S1oC0n76hEJ1Jgag1FEfxs0770U5fQqARAV3GZfVGXaQJS1yrSLMjk9ugHBvdIIcfowT1j5Apw2DOZuRVouu/wW1HrdrYSLwKJPqWUyV8SQfhMvOlhGKIax+CqHtfDWYF14fEN9XFnBpZbmcUFRU6z+557Lgp8Yk/6s+Vp5S9VuvJKLBBQR/f9FS5v7oZ4BAHreitjDU6HpIpyQgbUFjI3Qv3BVZsQmq+FM3EXAi1bgt5WPf17FFjpr6lBau1PfsChxuNg/K03StUGoxqffu2qmz4MyZfsVKcCEZLL8GZJlwmzBinM4tVP7Hl1czRNz4gOtiuwBfYPF2Pbl9WD+i6a8R/Fk02jtRPUZwqpt1F6tM5SC6hdEGnEOycHefePkOYQnPGsJxUeR1BUYoZRCBdOjKV3cJZ17lDRgagxUbo8quL0n+RphHL73PAQNNSvOtQl2w/y++CzjTFMMkWFV8Sp4syc=
+  file: bin/app-release.apk
+  on:
+    repo: kaizenman/GKM-Project
 branches:
   only:
   - "/^v\\d+\\.\\d+\\.\\d+.*$/"
