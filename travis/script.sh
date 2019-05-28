@@ -21,16 +21,17 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     ./gradlew assembleRelease
     cp -vf /Projects/app/build/outputs/apk/release/app-release.apk /Projects/bin
     # Building Linux OpenGL app
-    filename='run_linux'
-    if [ ! -d "build" ]; then
-        mkdir build
-    fi
-    cd build
-    cmake ..
-    make
-    cd ..
-    if [ ! -d "bin" ]; then
-    mkdir bin
-    fi
-    cp -vf build/bin/"$filename" bin/"$filename"
+    # TODO find out why RANDR is still missing
+    #filename='run_linux'
+    #if [ ! -d "build" ]; then
+        #mkdir build
+    #fi
+    #cd build
+    #cmake ..
+    #make
+    #cd ..
+    #if [ ! -d "bin" ]; then
+    #mkdir bin
+    #fi
+    #cp -vf build/bin/"$filename" bin/"$filename"
 fi

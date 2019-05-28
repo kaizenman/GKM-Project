@@ -90,8 +90,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     mkdir build
     cd build
     yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev
-    cmake .. && make -j4
-    make install
+    # TODO find out why RANDR is still missing on linux
+    #cmake .. && make -j4
+    #make install
 
     cd ..
     cd ..
