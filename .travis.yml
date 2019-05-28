@@ -11,9 +11,18 @@ before_deploy:
 - git config --local user.name kaizenman
 - git config --local user.email makolyan2@ukr.net
 - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
+before_install:
+  - >-
+    openssl aes-256-cbc 
+    -K $encrypted_xxxxxxxxxxxx_key 
+    -iv $encrypted_xxxxxxxxxxxx_iv 
+    -in github_deploy_key.enc 
+    -out github_deploy_key 
+    -d
+  - chmod 600 github_deploy_key
+  - eval $(ssh-agent -s)
+  - ssh-add github_deploy_key
 deploy:
-  api_key:
-    secure: jS3iqwEJ/DMyGzxiNiPHLiLOQvhZDZcUgTVR0MlsxH7diDqaLAMmZzZSnoBEyelCB2S+U1MRH25JLX3tUVhrmTViVwBoUFvMcLDTa2Xbz3dUtrmioIc0EBEfc7FSaDS52+cyGsm2CJAiVXDfFSaPjeBqOLK9EhtUgYCmWVvn3D22YD4kU7BmCYHPYFAjN+HNNhgZmNDbw/jWb3TTLe3ssogcbKSWgQi2fFE1DLVIgvFU5e9TmV1YhpKhV4vJbvsYYHESk12jyAkVE0eqtfn68wcAXD1H1WZqyUnaKmB+YWmHBk7mK6vZM8wxuXWTIxeLTo2/gEPRF1BxG9hYQdZKomJcgz4SNQYgK19D4j3oBBY2hLE3r/E5S4za/Q4t+HbTsRbxE4Vx7DO1/MvcM8pRg6s4gxVYYLnTaGtndqUFMJXW/pIkROnr/HR85ggY1pAJX2WjLM89L55fj8wX2hLQoQLYAjtRconCz7Xv6YJesNuIgrryeKaxUnXWIJOKC0DojW+XklTh5SQi0BpFL5WtbNa70N0qMfOWNu1MH2PmD/anWXpkTOwuiEBbABNW5+ybphV5hEy0HI8KPMP+AhuByn96zA5bpjArV8mBKwZUnqU2PlRGIZenyVORk2CiUisBaczvTA713w0SK/SOLakSoTtqedNTRtIWg0TEneWKK6w=
   file:
   #- bin/run_linux
   - bin/run_darwin
