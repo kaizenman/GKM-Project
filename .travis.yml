@@ -3,7 +3,6 @@ os:
 - osx
 language:
 - cpp
-sudo: required
 dist: trusty
 before_script: bash travis/before_install.sh
 script: bash travis/script.sh
