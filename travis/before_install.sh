@@ -32,7 +32,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     # download and install Android SDK
     # https://developer.android.com/studio/#downloads
     #export ANDROID_SDK_VERSION=4333796
-    mkdir -p /opt/android-sdk && cd /opt/android-sdk
+    mkdir -p ${ANDROID_HOME} && cd ${ANDROID_HOME}
     wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_VERSION}.zip > /dev/null 2>&1
     unzip *tools*linux*.zip > /dev/null 2>&1
     rm *tools*linux*.zip > /dev/null 2>&1
