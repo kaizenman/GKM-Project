@@ -2,11 +2,9 @@
 
 source travis/vars.sh
 
+apt-get -y install ninja-build
 which ninja
 echo $PATH
-
-ls /usr/bin -l
-
 
 filename='unknown'
 if [ "$(uname)" == "Darwin" ]; then
