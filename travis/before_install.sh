@@ -82,7 +82,7 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "... Getting opengl libraries"
     wget --no-check-certificate -O opengl.tar.gz  https://github.com/kaizenman/utils/archive/opengl.tar.gz
     tar xvzf opengl_deps.tar.gz > /dev/null 2>&1
-    chmod +x ./utils-opengl_deps/install_opengl_deps.sh /dev/null 2>&1
-    ./utils-opengl_deps/install_opengl_deps.sh > /dev/null 2>&1 /dev/null 2>&1
+    chmod +x ./utils-opengl_deps/install_opengl.sh
+    ./utils-opengl_deps/install_opengl.sh
 fi
 cd cwd
