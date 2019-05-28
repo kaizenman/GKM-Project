@@ -16,7 +16,8 @@ android {
     signingConfigs {
         release {
            // if (project.hasProperty('MYAPP_RELEASE_STORE_FILE')) {
-                storeFile file("/Projects/pleasework.keystore")
+           //     storeFile file("/Projects/pleasework.keystore")
+                storeFile file("/home/travis/build/kaizenman/GKM-Project/pleasework.keystore")
                 keyAlias 'pleasework'
                 storePassword 'pleasework'
                 keyPassword 'pleasework'
