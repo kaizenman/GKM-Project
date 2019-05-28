@@ -4,8 +4,13 @@ source travis/vars.sh
 
 # ninja
 wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
-unzip ninja-linux.zip -d /usr/local/bin/
-update-alternatives --install /usr/bin/ninja ninja /usr/local/bin/ninja 1 --force
+mkdir ninja
+unzip ninja-linux.zip -d ninja/
+ls -l
+
+echo $PWD
+export PATH=$PATH:/ninja/ninja-linux
+
 
 which ninja
 echo $PATH
