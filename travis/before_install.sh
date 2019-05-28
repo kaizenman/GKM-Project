@@ -3,6 +3,7 @@
 if [ "$(uname)" == "Darwin" ]; then
     brew install glfw3
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+    source travis/vars.sh
     dpkg --add-architecture i386 > /dev/null 2>&1
     apt-get update -y > /dev/null 2>&1
     apt-get install -y libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386 > /dev/null 2>&1
@@ -12,7 +13,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     # download and install Gradle
     # https://services.gradle.org/distributions/
-    export GRADLE_VERSION=4.10
+    #export GRADLE_VERSION=4.10
     cd /opt
     wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip > /dev/null 2>&1
     unzip gradle*.zip
@@ -21,7 +22,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     # download and install Kotlin compiler
     # https://github.com/JetBrains/kotlin/releases/latest
-    export KOTLIN_VERSION=1.2.61
+    #export KOTLIN_VERSION=1.2.61
     cd /opt
     wget -q https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip > /dev/null 2>&1
     unzip *kotlin*.zip
@@ -29,19 +30,19 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
     # download and install Android SDK
     # https://developer.android.com/studio/#downloads
-    export ANDROID_SDK_VERSION=4333796
+    #export ANDROID_SDK_VERSION=4333796
     mkdir -p /opt/android-sdk && cd /opt/android-sdk
     wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_VERSION}.zip > /dev/null 2>&1
     unzip *tools*linux*.zip > /dev/null 2>&1
     rm *tools*linux*.zip > /dev/null 2>&1
 
     # set the environment variables
-    export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    export GRADLE_HOME=/opt/gradle
-    export KOTLIN_HOME=/opt/kotlinc
-    export ANDROID_HOME=/opt/android-sdk
-    export PATH=${PATH}:${GRADLE_HOME}/bin:${KOTLIN_HOME}/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
-    export _JAVA_OPTIONS=-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
+    #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
+    #export GRADLE_HOME=/opt/gradle
+    #export KOTLIN_HOME=/opt/kotlinc
+    
+    #export PATH=${PATH}:${GRADLE_HOME}/bin:${KOTLIN_HOME}/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
+    #export _JAVA_OPTIONS=-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
 
     apt-get update -y > /dev/null 2>&1
     yes | sdkmanager --licenses > /dev/null 2>&1
@@ -75,9 +76,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     #tar xvzf v0.10.3.tar.gz
     echo "Setting environment variables"
     echo "... Adding /usr/bin/clang++-6.0/bin to PATH variable"
-    export PATH=/usr/bin/clang++-6.0/bin:$PATH 
+    #export PATH=/usr/bin/clang++-6.0/bin:$PATH 
     echo "... Adding /usr/lib/clang/6.0/lib to LD_LIBRARY_PATH variable"
-    export LD_LIBRARY_PATH=/usr/lib/clang/6.0/lib:$LD_LIBRARY_PATH
+    #export LD_LIBRARY_PATH=/usr/lib/clang/6.0/lib:$LD_LIBRARY_PATH
     ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
     ln -s /usr/bin/clang-6.0 /usr/bin/clang
     #echo "... Adding /polly-0.10.3 to POL\LY_ROOT variable"
