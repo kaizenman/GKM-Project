@@ -15,7 +15,7 @@ deploy:
   provider: releases
   api_key:
     secure: v/hO0VbIPVoPWRdjdVoJF9wfDNVjLZyejiKOO54kxnqAe9hIAa407DwQ86J3XV8x4k2f3GuG4EX8hs52y0oUI2bnFvMPNJqiNIc6r1s55MS9d/WbfiO+2q4AO0ldbziU0qDoNdHQm+9ZvlW0rr9kd3sqaw5lyrPrNGaa6B8bbisvh/8QbkL7SXwAn4iqdEX5awALXMaCNBF9Nl4a4S1oC0n76hEJ1Jgag1FEfxs0770U5fQqARAV3GZfVGXaQJS1yrSLMjk9ugHBvdIIcfowT1j5Apw2DOZuRVouu/wW1HrdrYSLwKJPqWUyV8SQfhMvOlhGKIax+CqHtfDWYF14fEN9XFnBpZbmcUFRU6z+557Lgp8Yk/6s+Vp5S9VuvJKLBBQR/f9FS5v7oZ4BAHreitjDU6HpIpyQgbUFjI3Qv3BVZsQmq+FM3EXAi1bgt5WPf17FFjpr6lBau1PfsChxuNg/K03StUGoxqffu2qmz4MyZfsVKcCEZLL8GZJlwmzBinM4tVP7Hl1czRNz4gOtiuwBfYPF2Pbl9WD+i6a8R/Fk02jtRPUZwqpt1F6tM5SC6hdEGnEOycHefePkOYQnPGsJxUeR1BUYoZRCBdOjKV3cJZ17lDRgagxUbo8quL0n+RphHL73PAQNNSvOtQl2w/y++CzjTFMMkWFV8Sp4syc=
-  file: bin/app-release.apk
+  file: /home/travis/build/kaizenman/GKM-Project/bin/app-release.apk
   on:
     repo: kaizenman/GKM-Project
 branches:
