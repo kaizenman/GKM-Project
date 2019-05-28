@@ -40,18 +40,18 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     fi
 
     cp -vf app/build/outputs/apk/release/app-release.apk bin/
-    
+
     # Building Linux OpenGL app
-    filename='run_linux'
-    if [ ! -d "build" ]; then
-        mkdir build
-    fi
-    cd build
-    cmake ..
-    make
-    cd ..
-    if [ ! -d "bin" ]; then
-      mkdir bin
-    fi
-    cp -vf build/bin/"$filename" bin/"$filename"
+    #filename='run_linux'
+    #if [ ! -d "build" ]; then
+    #    mkdir build
+    #fi
+    #cd build
+    #cmake ..
+    #make
+    #cd ..
+    #if [ ! -d "bin" ]; then
+    #  mkdir bin
+    #fi
+    #cp -vf build/bin/"$filename" bin/"$filename"
 fi

@@ -19,7 +19,6 @@ deploy:
   file: 
   - bin/app-release.apk
   - bin/run_darwin
-  - bin/run_linux
   on:
     repo: kaizenman/GKM-Project
     tags: false

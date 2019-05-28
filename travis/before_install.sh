@@ -71,16 +71,16 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "... Getting opengl libraries"
     echo "Installing RANDR!!!"
   #  apt-get update
-    git clone https://github.com/glfw/glfw
-    cd glfw
-    mkdir build
-    cd build
-    yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev xrandr-dev
-    cmake .. && make -j4
-    make install
-    cd ..
-    cd ..
+    #git clone https://github.com/glfw/glfw
+    #cd glfw
+    #mkdir build
+    #cd build
+    #yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev xrandr-dev
+    #cmake .. && make -j4
+    #make install
+    #cd ..
+    #cd ..
 
-    cp -Rv ./glfw/include/ ./include/ 
+    #cp -Rv ./glfw/include/ ./include/ 
     #rm -r glfw
 fi
