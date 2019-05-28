@@ -67,9 +67,9 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     echo "Setting python3 as default"
     update-alternatives --install /usr/bin/python python /usr/bin/python3.7 1 > /dev/null 2>&1
     update-alternatives --install /usr/bin/python python /usr/bin/python2.7 2 > /dev/null 2>&1
-    echo "Getting polly..."
-    wget --no-check-certificate -O v0.10.3.tar.gz https://github.com/ruslo/polly/archive/v0.10.3.tar.gz > /dev/null 2>&1
-    tar xvzf v0.10.3.tar.gz
+    #echo "Getting polly..."
+    #wget --no-check-certificate -O v0.10.3.tar.gz https://github.com/ruslo/polly/archive/v0.10.3.tar.gz
+    #tar xvzf v0.10.3.tar.gz
     echo "Setting environment variables"
     echo "... Adding /usr/bin/clang++-6.0/bin to PATH variable"
     export PATH=/usr/bin/clang++-6.0/bin:$PATH 
@@ -77,8 +77,8 @@ if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     export LD_LIBRARY_PATH=/usr/lib/clang/6.0/lib:$LD_LIBRARY_PATH
     ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
     ln -s /usr/bin/clang-6.0 /usr/bin/clang
-    echo "... Adding /polly-0.10.3 to POLLY_ROOT variable"
-    export POLLY_ROOT=/polly-0.10.3
+    #echo "... Adding /polly-0.10.3 to POLLY_ROOT variable"
+    #export POLLY_ROOT=/polly-0.10.3
     echo "... Getting opengl libraries"
     echo "test"
     wget --no-check-certificate -O opengl_deps.tar.gz  https://github.com/kaizenman/utils/archive/opengl_deps.tar.gz > /dev/null 2>&1
