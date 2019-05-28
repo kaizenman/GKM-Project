@@ -63,7 +63,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     apt-get autoremove --purge -y > /dev/null 2>&1
     apt-get autoclean -y > /dev/null 2>&1
     rm -rf /var/cache/apt/* /tmp/* > /dev/null 2>&1
-    yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev
+    
     
     echo "Setting g++ 8 as default compiler"
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 1 > /dev/null 2>&1
@@ -89,6 +89,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     cd glfw
     mkdir build
     cd build
+    yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev
     cmake .. && make -j4
     make install
 
@@ -101,6 +102,4 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
 
   cp -Rv ./glfw/include/ ./include/ 
   rm -r glfw
-
-    
 fi
