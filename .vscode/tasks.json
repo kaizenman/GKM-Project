@@ -76,7 +76,7 @@
         },
         {
             "label": "Run_android_cpp",
-            "command": "docker run -it -v C:\\Users\\Administrator\\Projects:/Projects android-sdk /bin/bash",
+            "command": "docker run -it -v C:\\Users\\niels\\Projects\\GKM-Project:/Projects android-sdk /bin/bash",
             "type" : "shell"
         },
         // Compile single file

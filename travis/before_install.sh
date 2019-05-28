@@ -63,7 +63,8 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     apt-get autoremove --purge -y > /dev/null 2>&1
     apt-get autoclean -y > /dev/null 2>&1
     rm -rf /var/cache/apt/* /tmp/* > /dev/null 2>&1
-    apt-get -y install xorg-dev libglu1-mesa-dev
+    yes | apt-get install xorg-dev libglu1-mesa-dev libgl1-mesa-dev freeglut3-dev
+    
     echo "Setting g++ 8 as default compiler"
     update-alternatives --install /usr/bin/g++ g++ /usr/bin/g++-8 1 > /dev/null 2>&1
     echo "Setting python3 as default"
@@ -82,12 +83,24 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     #echo "... Adding /polly-0.10.3 to POL\LY_ROOT variable"
     #export POLLY_ROOT=/polly-0.10.3
     echo "... Getting opengl libraries"
-    
-    wget --no-check-certificate -O opengl_new.tar.gz  https://github.com/kaizenman/utils/archive/opengl_new.tar.gz
-    tar xvzf opengl_new.tar.gz
-    cd utils-opengl_new
-    chmod +x ./install_opengl_deps.sh
+    echo "Installing RANDR!!!"
+    apt-get update
+    git clone https://github.com/glfw/glfw
+    cd glfw
+    mkdir build
+    cd build
+    cmake .. && make -j4
+    make install
+
     cd ..
-    ./utils-opengl_new/install_opengl_deps.sh
+    cd ..
+
+  if [ ! -d "./include" ]; then
+   mkdir ./include
+  fi
+
+  cp -Rv ./glfw/include/ ./include/ 
+  rm -r glfw
+
     
 fi
