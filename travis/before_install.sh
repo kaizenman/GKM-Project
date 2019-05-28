@@ -11,39 +11,21 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     apt-get install -y --no-install-recommends openjdk-8-jdk > /dev/null 2>&1
     apt-get install -y git wget zip > /dev/null 2>&1
     apt-get install -y qt5-default > /dev/null 2>&1
-
-    # download and install Gradle
-    # https://services.gradle.org/distributions/
-    #export GRADLE_VERSION=4.10
     cd /opt
     wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip > /dev/null 2>&1
     unzip gradle*.zip
     ls -d */ | sed 's/\/*$//g' | xargs -I{} mv {} gradle
     rm gradle*.zip
 
-    # download and install Kotlin compiler
-    # https://github.com/JetBrains/kotlin/releases/latest
-    #export KOTLIN_VERSION=1.2.61
     cd /opt
     wget -q https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip > /dev/null 2>&1
     unzip *kotlin*.zip
     rm *kotlin*.zip
 
-    # download and install Android SDK
-    # https://developer.android.com/studio/#downloads
-    #export ANDROID_SDK_VERSION=4333796
     mkdir -p ${ANDROID_HOME} && cd ${ANDROID_HOME}
     wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_VERSION}.zip > /dev/null 2>&1
     unzip *tools*linux*.zip > /dev/null 2>&1
     rm *tools*linux*.zip > /dev/null 2>&1
-
-    # set the environment variables
-    #export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
-    #export GRADLE_HOME=/opt/gradle
-    #export KOTLIN_HOME=/opt/kotlinc
-    
-    #export PATH=${PATH}:${GRADLE_HOME}/bin:${KOTLIN_HOME}/bin:${ANDROID_HOME}/emulator:${ANDROID_HOME}/tools:${ANDROID_HOME}/platform-tools:${ANDROID_HOME}/tools/bin
-    #export _JAVA_OPTIONS=-XX:+UnlockExperimentalVMOptions -XX:+UseCGroupMemoryLimitForHeap
 
     apt-get update -y > /dev/null 2>&1
     yes | sdkmanager --licenses > /dev/null 2>&1
@@ -81,9 +63,7 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     #tar xvzf v0.10.3.tar.gz
     echo "Setting environment variables"
     echo "... Adding /usr/bin/clang++-6.0/bin to PATH variable"
-    #export PATH=/usr/bin/clang++-6.0/bin:$PATH 
     echo "... Adding /usr/lib/clang/6.0/lib to LD_LIBRARY_PATH variable"
-    #export LD_LIBRARY_PATH=/usr/lib/clang/6.0/lib:$LD_LIBRARY_PATH
     ln -s /usr/bin/clang++-6.0 /usr/bin/clang++
     ln -s /usr/bin/clang-6.0 /usr/bin/clang
     #echo "... Adding /polly-0.10.3 to POL\LY_ROOT variable"
