@@ -49,8 +49,12 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     yes | sdkmanager --licenses > /dev/null 2>&1
     sdkmanager "ndk-bundle" > /dev/null 2>&1
     apt-get -y install cmake > /dev/null 2>&1
-    apt-get install ninja-build > /dev/null 2>&1
+    apt-get install ninja-build
     apt-get -y install software-properties-common > /dev/null 2>&1
+    wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
+    apt-get update
+    apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
+    apt-get install -y clang-6.0 lld-6.0
 
     apt-get dist-upgrade -y > /dev/null 2>&1
     echo "deb http://ftp.us.debian.org/debian jessie main contrib non-free" >> /etc/apt/sources.list.d/jessie.list
