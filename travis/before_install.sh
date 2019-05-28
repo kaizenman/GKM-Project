@@ -1,6 +1,8 @@
 #!/bin/bash
 
-if [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
+if [ "$(uname)" == "Darwin" ]; then
+    brew install glfw3
+elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     dpkg --add-architecture i386 > /dev/null 2>&1
     apt-get update -y > /dev/null 2>&1
     apt-get install -y libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386 > /dev/null 2>&1
