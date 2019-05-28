@@ -11,20 +11,10 @@ before_deploy:
 - git config --local user.name kaizenman
 - git config --local user.email makolyan2@ukr.net
 - git tag "$(date +'%Y%m%d%H%M%S')-$(git log --format=%h -1)"
-before_install:
-  - >-
-    openssl aes-256-cbc 
-    -K $encrypted_xxxxxxxxxxxx_key 
-    -iv $encrypted_xxxxxxxxxxxx_iv 
-    -in github_deploy_key.enc 
-    -out github_deploy_key 
-    -d
-  - chmod 600 github_deploy_key
-  - eval $(ssh-agent -s)
-  - ssh-add github_deploy_key
 deploy:
+  api_key:
+    secure: jS3iqwEJ/DMyGzxiNiPHLiLOQvhZDZcUgTVR0MlsxH7diDqaLAMmZzZSnoBEyelCB2S+U1MRH25JLX3tUVhrmTViVwBoUFvMcLDTa2Xbz3dUtrmioIc0EBEfc7FSaDS52+cyGsm2CJAiVXDfFSaPjeBqOLK9EhtUgYCmWVvn3D22YD4kU7BmCYHPYFAjN+HNNhgZmNDbw/jWb3TTLe3ssogcbKSWgQi2fFE1DLVIgvFU5e9TmV1YhpKhV4vJbvsYYHESk12jyAkVE0eqtfn68wcAXD1H1WZqyUnaKmB+YWmHBk7mK6vZM8wxuXWTIxeLTo2/gEPRF1BxG9hYQdZKomJcgz4SNQYgK19D4j3oBBY2hLE3r/E5S4za/Q4t+HbTsRbxE4Vx7DO1/MvcM8pRg6s4gxVYYLnTaGtndqUFMJXW/pIkROnr/HR85ggY1pAJX2WjLM89L55fj8wX2hLQoQLYAjtRconCz7Xv6YJesNuIgrryeKaxUnXWIJOKC0DojW+XklTh5SQi0BpFL5WtbNa70N0qMfOWNu1MH2PmD/anWXpkTOwuiEBbABNW5+ybphV5hEy0HI8KPMP+AhuByn96zA5bpjArV8mBKwZUnqU2PlRGIZenyVORk2CiUisBaczvTA713w0SK/SOLakSoTtqedNTRtIWg0TEneWKK6w=
   file:
-  #- bin/run_linux
   - bin/run_darwin
   - bin/app-release.apk
   on:
@@ -33,6 +23,7 @@ deploy:
   skip_cleanup: true
 branches:
   only:
-  # release tags
-  - /^v\d+\.\d+\.\d+.*$/
+  - "/^v\\d+\\.\\d+\\.\\d+.*$/"
   - master
+dd:
+  secure: AfTCuzX4E501VsTX3tmZjljwbGqJTH9UVyP9u0M7JXWmenkeu9S9MrcvU1Uhik5fbVU+JzcH/8oOPz/EH+ewBQnYQJzjlok764tOCnmWAKzt0lBHV/Eac/TuXzF4BhXwip0eAKsek3J02qWimlQfNU6ASIIulYtvbep3/dnV7x1jNCTXvq9v8SMkNxaVdMFOAUOh07GClFB0vkb9FEzZco8MHeME8jXbtpEwtUbLmezsDMIQagtJA95zW8ZhiTwpeo10wRYTSU5VpBbhiFb1kOhll5Mp+ppmiO28/QAhNxX6utuXyY38YA2XMrEtekBLRSmFIOOuP7q7W9tuZuxgQM4D/7jjMiylErTtIaFumlJDARFntg7lXXjY2b2BBmw/25oSpgHMhtBTyHy376Nk/eVDeNXnNOlEY3v6O3bY440SmR8hbIdim8g2PyX+ueEcF4n4f3VJ+NCtNI01QpZqgk9ftnSSAAzVV4L31YfSKMVokjgG0ZvS9ABroxq3j/gNLux+6cNwP1eYzvLeFQxjQeVSph2JurAlGfMMlJiaop6gKeuL1dOkFlUzxSwErtZWeW90yJshPwmjDexvB5Dk0pA21BKfWPXK1EEY9IfTSWZHB9Y8Gv5wN7XXUFh2NWkN/zQVz8wmuzwIUwV+E6Br7SPcDkfAg/3KctaIylF7lII=
