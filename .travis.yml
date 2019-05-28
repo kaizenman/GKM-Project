@@ -5,8 +5,8 @@ language:
 - cpp
 sudo: required
 dist: trusty
-before_script: "if [ -f ./.travis/before_script.sh    ] ; then ./.travis/before_script.sh  ; fi"
-script: "if [ -f ./.travis/script.sh           ] ; then ./.travis/script.sh         ; fi"
+before_script: ./.travis/before_script.sh
+script: ./.travis/script.sh
 before_deploy:
 - git config --local user.name kaizenman
 - git config --local user.email makolyan2@ukr.net
