@@ -7,11 +7,11 @@ wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.z
 mkdir ninja
 unzip ninja-linux.zip -d ninja/
 ls -l /home/travis/build/kaizenman/GKM-Project/ninja
-ls -l /home/travis/build/kaizenman/GKM-Project/ninja/ninja-linux
+ls -l /home/travis/build/kaizenman/GKM-Project/ninja/ninja
 
 echo $PWD
 
-export PATH=$PATH:/home/travis/build/kaizenman/GKM-Project/ninja/ninja-linux
+export PATH=$PATH:/home/travis/build/kaizenman/GKM-Project/ninja/ninja
 
 
 which ninja
