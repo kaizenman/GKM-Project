@@ -3,17 +3,17 @@
 source travis/vars.sh
 
 # ninja
-wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
-mkdir ninja
-unzip ninja-linux.zip -d ninja/
-ls /home/travis/build/kaizenman/GKM-Project/ninja/
-ls /home/travis/build/kaizenman/GKM-Project/ninja/ninja
-export PATH=$PATH:/home/travis/build/kaizenman/GKM-Project/ninja/
+#wget https://github.com/ninja-build/ninja/releases/download/v1.8.2/ninja-linux.zip
+#mkdir ninja
+#unzip ninja-linux.zip -d ninja/
+#ls /home/travis/build/kaizenman/GKM-Project/ninja/
+#ls /home/travis/build/kaizenman/GKM-Project/ninja/ninja
+#export PATH=$PATH:/home/travis/build/kaizenman/GKM-Project/ninja/
 
-echo $PWD
+#echo $PWD
 
-which ninja
-echo $PATH
+#which ninja
+#echo $PATH
 
 filename='unknown'
 if [ "$(uname)" == "Darwin" ]; then
