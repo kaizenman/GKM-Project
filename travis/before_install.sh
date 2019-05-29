@@ -5,22 +5,22 @@ if [ "$(uname)" == "Darwin" ]; then
 elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     source travis/vars.sh
   
-    dpkg --add-architecture i386 > /dev/null 2>&1
-    apt-get update -y > /dev/null 2>&1
-    apt-get install -y libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386 > /dev/null 2>&1
+#    dpkg --add-architecture i386 > /dev/null 2>&1
+#    apt-get update -y > /dev/null 2>&1
+#    apt-get install -y libncurses5:i386 libc6:i386 libstdc++6:i386 lib32gcc1 lib32ncurses5 lib32z1 zlib1g:i386 > /dev/null 2>&1
     apt-get install -y --no-install-recommends openjdk-8-jdk > /dev/null 2>&1
     apt-get install -y git wget zip > /dev/null 2>&1
-    apt-get install -y qt5-default > /dev/null 2>&1
+#    apt-get install -y qt5-default > /dev/null 2>&1
     cd /opt
     wget -q https://services.gradle.org/distributions/gradle-${GRADLE_VERSION}-bin.zip > /dev/null 2>&1
     unzip gradle*.zip
     ls -d */ | sed 's/\/*$//g' | xargs -I{} mv {} gradle
     rm gradle*.zip
 
-    cd /opt
-    wget -q https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip > /dev/null 2>&1
-    unzip *kotlin*.zip
-    rm *kotlin*.zip
+#    cd /opt
+#    wget -q https://github.com/JetBrains/kotlin/releases/download/v${KOTLIN_VERSION}/kotlin-compiler-${KOTLIN_VERSION}.zip > /dev/null 2>&1
+#    unzip *kotlin*.zip
+#    rm *kotlin*.zip
 
     mkdir -p ${ANDROID_HOME} && cd ${ANDROID_HOME}
     wget -q https://dl.google.com/android/repository/sdk-tools-linux-${ANDROID_SDK_VERSION}.zip > /dev/null 2>&1
@@ -38,9 +38,9 @@ elif [ "$(expr substr $(uname -s) 1 5)" == "Linux" ]; then
     apt-add-repository "deb http://apt.llvm.org/xenial/ llvm-toolchain-xenial-6.0 main"
     apt-get install -y clang-6.0 lld-6.0
 
-    apt-get dist-upgrade -y > /dev/null 2>&1
-    echo "deb http://ftp.us.debian.org/debian jessie main contrib non-free" >> /etc/apt/sources.list.d/jessie.list
-    echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list.d/unstable.list
+    #apt-get dist-upgrade -y > /dev/null 2>&1
+    #echo "deb http://ftp.us.debian.org/debian jessie main contrib non-free" >> /etc/apt/sources.list.d/jessie.list
+    #echo "deb http://ftp.us.debian.org/debian unstable main contrib non-free" >> /etc/apt/sources.list.d/unstable.list
     apt-get update > /dev/null 2>&1
     apt install python -y > /dev/null 2>&1
     apt install python3 -y > /dev/null 2>&1
