@@ -5,15 +5,14 @@ language:
 jdk: oraclejdk8
 sudo: false
 install:
-  - yes | sdkmanager --licenses > /dev/null 2>&1
-  - yes | sdkmanager "ndk-bundle"
-  - yes | sdkmanager "cmake;3.6.4111459"
-  - yes | sdkmanager "lldb;3.1"
+  - echo y | sdkmanager --licenses > /dev/null 2>&1
+  - echo y | sdkmanager "ndk-bundle"
+  - echo y | sdkmanager "cmake;3.6.4111459"
+  - echo y | sdkmanager "lldb;3.1"
 android:
   components:
-    - tools
-    - build-tools-26.0.0
-    - android-26
+    - build-tools-25.2.3
+    - android-25
 script:
   - bash travis/script.sh
 before_deploy:
