@@ -35,16 +35,12 @@ install:
 env:
   - ANDROID_HOME=$HOME/android-sdk
 android:
-  components:
-    - tools
-    - build-tools-25.0.2
-    - android-25
   licenses:
     - 'android-sdk-preview-license-52d11cd2'
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 script:
-  - ./gradlew -no-daemon --parallel --assembleRelease
+  - ./gradlew --assembleRelease
 before_deploy:
 - git config --local user.name kaizenman
 - git config --local user.email makolyan2@ukr.net
