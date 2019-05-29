@@ -40,7 +40,7 @@ android:
     - 'android-sdk-license-.+'
     - 'google-gdk-license-.+'
 script:
-  - ./gradlew --assembleRelease
+  - ./gradlew assembleRelease
 before_deploy:
 - git config --local user.name kaizenman
 - git config --local user.email makolyan2@ukr.net
